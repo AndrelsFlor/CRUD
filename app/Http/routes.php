@@ -132,8 +132,9 @@ Route::group(['prefix' => 'ver/pessoa'], function () {
 
 Route::group(['prefix' => 'editar/pessoa/'],function(){
 	Route::get('/fisica/{idPessoa}', 'pessoaFisicaController@loadUpdate');
+	Route::get('/juridica/{idPessoa}','PessoaJuridicaController@loadUpdate');
 
-	Route::post('/fisica/submit','pessoaFisicaController@update');
+	Route::post('/juridica/submit','PessoaJuridicaController@update');
 });
    
 

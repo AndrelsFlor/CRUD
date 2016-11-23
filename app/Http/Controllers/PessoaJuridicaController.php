@@ -63,4 +63,22 @@ class PessoaJuridicaController extends Controller
         $modelTelefone->save();
 
     }
+
+    public function loadUpdate($id){
+
+        $dados = DB::table('pessoajuridica')->where('id','=',$id)->get();
+
+        return view('formUpdatePessoaJuridica',['dados'=>$dados]);
+
+    }
+
+    public function update(Request $request){
+        
+        DB::table('pessoajuridica')->where('id','=',$request->idPessoaJuridica)->update([
+                'name'              => $request->nome,
+                
+                'commercialName'    => $request->nomeFantasia,
+                'cnpj'              => $request->cnpj
+            ]);
+    }
 }

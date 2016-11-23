@@ -1,5 +1,5 @@
 @extends ('layouts.dashboard')
-@section('page_heading','Update de pessoa física')
+@section('page_heading','Update de pessoa jurídica')
 
 @section('section')
 @foreach($dados as $valor)
@@ -13,10 +13,15 @@
                 <p class="help-block"></p>
             </div>
 
+            <div class="form-group">
+                <label>Nome Fantasia</label>
+                <input class="form-control" name="nomeFantasia" required="true" value="<?php echo $valor->commercialName;?>" type="text">
+                <p class="help-block"></p>
+            </div>
               
               <div class="form-group">
-                <label>CPF</label>
-                <input class="form-control" name="cpf" required="true" value={{$valor->cpf}}>
+                <label>CNPJ</label>
+                <input class="form-control" name="cnpj" required="true" value={{$valor->cnpj}}>
                 <p class="help-block"></p>
             </div>
            <input type="hidden" name="_token" id="_token" value="{{  Session::token() }}" />
@@ -41,7 +46,7 @@
             url:"submit",
             data:data,
             success:function(){
-                alert("Pessoa Física cadastrada com sucesso!");
+                alert("Pessoa jurídica atualizada com sucesso!");
                 $("#formName").trigger("reset");
             }
         });
