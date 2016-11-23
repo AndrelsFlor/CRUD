@@ -99,9 +99,34 @@ Route::group(['prefix' => 'ver/pessoa'], function () {
 	Route::get('/fisica','pessoaFisicaController@selectAll');
 	Route::get('/fisica/detalhes/{idPessoa}','pessoaFisicaController@showDetails');
 	Route::get('/fisica/detalhes/mail/{idPessoa}',function($idPessoa){
+
 		return View::make('formPessoaFisicaEmail',['idPessoa'=>$idPessoa]);
 	});
+	Route::get('/fisica/detalhes/phone/{idPessoa}',function($idPessoa){
+		
+		return View::make('formPessoaFisicaTelefone',['idPessoa'=>$idPessoa]);
+	});
 	Route::post('fisica/detalhes/mail/submit','pessoaFisicaController@insertEmail');
+	Route::post('fisica/detalhes/phone/submit','pessoaFisicaController@insertTelefone');
+
+
+
+
+
+	Route::get('/juridica','PessoaJuridicaController@selectAll');
+	Route::get('/juridica/detalhes/{idPessoa}','PessoaJuridicaController@showDetails');
+	Route::get('/juridica/detalhes/mail/{idPessoa}',function($idPessoa){
+		return View::make('formPessoaJuridicaEmail',['idPessoa'=> $idPessoa]);
+	});
+	Route::get('/juridica/detalhes/phone/{idPessoa}',function($idPessoa){
+		return View::make('formPessoaJuridicaTelefone',['idPessoa'=> $idPessoa]);
+	});
+
+	Route::post('juridica/detalhes/mail/submit','PessoaJuridicaController@insertEmail');
+
+	Route::post('juridica/detalhes/phone/submit','PessoaJuridicaController@insertTelefone');
+
+
 });
    
 

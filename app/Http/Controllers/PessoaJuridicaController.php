@@ -8,6 +8,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\PessoaJuridica;
+use App\PessoaJuridicaEmail;
+use App\PessoaJuridicaTelefone;
+
+use DB;
 
 class PessoaJuridicaController extends Controller
 {
@@ -20,6 +24,43 @@ class PessoaJuridicaController extends Controller
     	$pessoaJuridica->cnpj = $request->cnpj;
     	$pessoaJuridica->save();
 
+
+    }
+
+    public function selectAll(){
+    	$pessoasJuridicas = DB::table('pessoajuridica')->get();
+
+    	return view('verPessoaJuridica',['pessoasJuridicas' => $pessoasJuridicas]);
+    }
+
+    public function showDetails($id){
+        $pessoa = DB::table('pessoajuridica')->where('id','=',$id)->get();;
+
+        $emails = DB::table('pessoajuridicaemail')->where('idPessoaJuridica','=',$id)->get();
+
+        $telefones = DB::table('pessoajuridicatelefone')->where('idPessoaJuridica','=',$id)->get();
+
+        return view('verPessoaJuridicaDetalhes',['pessoaJuridica'=>$pessoa,'emails'=>$emails,'telefones'=>$telefones]);
+
+    }
+
+    public function insertEmail(Request $request){
+
+        $values = new PessoaJuridicaEmail();
+
+        $values->idPessoaJuridica = $request->idPessoaJuridica;
+        $values->email = $request->email;
+
+        $values->save();
+    }
+
+    public function insertTelefone(Request $request){
+
+        $modelTelefone = new PessoaJuridicaTelefone();
+        $modelTelefone->idPessoaJuridica = $request->idPessoaJuridica;
+        $modelTelefone->telefone = $request->telefone;
+
+        $modelTelefone->save();
 
     }
 }

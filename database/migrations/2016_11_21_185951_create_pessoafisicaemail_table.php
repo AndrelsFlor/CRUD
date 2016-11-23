@@ -15,7 +15,7 @@ class CreatePessoafisicaemailTable extends Migration
         Schema::create('pessoafisicaemail', function(Blueprint $table){
             $table->increments('id');
             $table->integer('idPessoaFisica')->unsigned();
-            $table->string('email',255);
+            $table->string('telefone',255);
             $table->timestamps();
         });
 

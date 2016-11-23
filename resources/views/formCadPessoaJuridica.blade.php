@@ -43,7 +43,9 @@ $(document).ready(function(){
             url:"./cadastraPessoaJuridica",
             data:data,
             success:function(){
+                alert('Pessoa jurídica cadastrada com sucesso!');
                 $("#formName").trigger("reset");
+
             }
         });
 

@@ -264,7 +264,7 @@
                                     <a href="{{url('ver/pessoa/fisica')}}">Pessoas físicas</a>
                                 </li>
                                 <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('buttons' ) }}">Buttons</a>
+                                    <a href="{{ url ('ver/pessoa/juridica' ) }}">Pessoas jurídicas</a>
                                 </li>
                                 <li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
                                     <a href="{{ url('notifications') }}">Alerts</a>

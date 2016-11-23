@@ -45,4 +45,16 @@ class pessoaFisicaController extends Controller
 
         $pessoaFisicaEmail->save();
     }
+
+    public function insertTelefone(Request $request){
+        
+        $modelTelefone = new PessoaFisicaTelefone();
+
+        $modelTelefone->idPessoaFisica = $request->idPessoaFisica;
+        $modelTelefone->telefone = $request->telefone;
+
+        $modelTelefone->save();
+
+    }
+
 }
