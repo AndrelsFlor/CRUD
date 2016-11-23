@@ -12,7 +12,8 @@
 		@section ('collapsible_panel_body')
 		@foreach($pessoasFisicas as $valor)
 		<?php
-			$html = "<a href=". url("ver/pessoa/fisica/detalhes/$valor->id").">Detalhes</a>";
+			$html = "<a href=". url("ver/pessoa/fisica/detalhes/$valor->id").">Detalhes</a>&nbsp;
+								<a href=".url("editar/pessoa/fisica/$valor->id"). ">Editar</a>";
 		?>
 		@include('widgets.collapse', array('id'=>$valor->id, 'class'=>'primary', 'header'=> $valor->name, 'body'=>$html,'collapseIn'=>true))
 

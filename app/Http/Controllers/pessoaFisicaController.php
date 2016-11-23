@@ -57,4 +57,21 @@ class pessoaFisicaController extends Controller
 
     }
 
+    public function loadUpdate($id){
+
+        $dadosPessoa = DB::table('pessoafisica')->where('id','=',$id)->get();
+
+        return view('formUpdatePessoaFisica',['dados' => $dadosPessoa]);       
+
+    }
+
+    public function update(Request $request){
+
+        DB::table('pessoafisica')->where('id','=',$request->idPessoaFisica)->update([
+                'name' => $request->nome,
+                'cpf' => $request->cpf
+            ]);
+
+    }
+
 }

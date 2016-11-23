@@ -128,6 +128,13 @@ Route::group(['prefix' => 'ver/pessoa'], function () {
 
 
 });
+
+
+Route::group(['prefix' => 'editar/pessoa/'],function(){
+	Route::get('/fisica/{idPessoa}', 'pessoaFisicaController@loadUpdate');
+
+	Route::post('/fisica/submit','pessoaFisicaController@update');
+});
    
 
 
