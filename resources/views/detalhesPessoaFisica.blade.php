@@ -12,7 +12,10 @@
 	$htmlTelefone = array();
 	if(!empty($emails)){
 		foreach($emails as $valorEmail){
-			array_push($htmlEmail,"<a href='mailto:$valorEmail->email'>$valorEmail->email</a><br>");
+			array_push($htmlEmail,"<a href='mailto:$valorEmail->email'>$valorEmail->email</a> <div class='btn-group-vertical pull-right'>
+ 
+  <a href=".url('/deletar/pessoa/fisica/mail/'.$valorEmail->id.'/'.$valor->id).">Deletar</a>
+ </div><br><br>");
 		}
 		$htmlEmail = implode($htmlEmail);
 	}
@@ -21,7 +24,10 @@
 	}
 if(!empty($telefones)){
 	foreach($telefones as $valorTelefones){
-		array_push($htmlTelefone,$valorTelefones->telefone."<br>");
+		array_push($htmlTelefone,$valorTelefones->telefone."<div class='btn-group-vertical pull-right'>
+ 
+ <a href=".url('/deletar/pessoa/fisica/phone/'.$valorEmail->id.'/'.$valor->id).">Deletar</a>
+ </div><br><br>");
 	}
 	$htmlTelefone = implode($htmlTelefone);
 }

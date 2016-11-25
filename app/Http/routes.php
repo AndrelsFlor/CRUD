@@ -138,4 +138,10 @@ Route::group(['prefix' => 'editar/pessoa/'],function(){
 });
    
 
+Route::group(['prefix' => 'deletar/pessoa/'],function(){
+	Route::get('juridica/mail/{idEmail}/{idPessoa}','PessoaJuridicaController@deleteEmail');
+	Route::get('juridica/phone/{idPhone}/{idPessoa}','PessoaJuridicaController@deletePhone');
 
+	Route::get('fisica/mail/{idEmail}/{idPessoa}','pessoaFisicaController@deleteEmail');
+	Route::get('fisica/phone/{idPhone}/{idPessoa}','pessoaFisicaController@deletePhone');
+});

@@ -74,4 +74,19 @@ class pessoaFisicaController extends Controller
 
     }
 
+   public function deleteEmail($idEmail,$idPessoa){
+          DB::table('pessoafisicaemail')->where('id','=',$idEmail)->delete();
+
+          return self::showDetails($idPessoa);
+
+      }
+
+      public function deletePhone($idPhone,$idPessoa){
+
+          DB::table('pessoafisicatelefone')->where('id','=',$idPhone)->delete();
+
+           return self::showDetails($idPessoa);
+
+      }
+
 }

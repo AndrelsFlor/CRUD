@@ -81,4 +81,19 @@ class PessoaJuridicaController extends Controller
                 'cnpj'              => $request->cnpj
             ]);
     }
+
+    public function deleteEmail($idEmail,$idPessoa){
+        DB::table('pessoajuridicaemail')->where('id','=',$idEmail)->delete();
+
+        return self::showDetails($idPessoa);
+
+    }
+
+    public function deletePhone($idPhone,$idPessoa){
+
+        DB::table('pessoajuridicatelefone')->where('id','=',$idPhone)->delete();
+
+         return self::showDetails($idPessoa);
+
+    }
 }
